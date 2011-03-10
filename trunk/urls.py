@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('imouren',
     # Example:
     (r'^$', 'users.views.index'),
     # (r'^imouren2/', include('imouren2.foo.urls')),
