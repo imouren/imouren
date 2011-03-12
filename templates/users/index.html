@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IMOUREN</title>
+</head>
+<script language="javascript" src="/media/js/jquery-1.5.1.min.js"></script>
+<script language="javascript">
+function show_about(){
+	$("#img").hide();
+	$("#hiring").hide();
+	$("#about").show();
+}
+function show_hiring(){
+	$("#img").hide();
+	$("#about").hide();
+	$("#hiring").show();
+}
+function show_img(){
+	$("#about").hide();
+	$("#hiring").hide();
+	$("#img").show();
+}
+</script>
+<body>
+<div style="width: 800px;height: 650px;margin: 100px auto 0px;">
+	<div style="height:620;" id="img">
+        <img src="/media/images/wolves.jpg" width="800" height="600" />
+    </div>
+    <div style="height:600px;width:400px; display:none;" id="about" align="center">
+    	总有个人让你时刻牵挂<br>
+    	总有份默默爱深藏心底<br>
+        总有个地方会让心灵休憩<br>
+        把这份记忆与情思我们共同珍藏<br>
+        just waitting for you<br><br>	
+
+        <a mailto:gmouren@gmail.com>蛇小狼</a>
+        <br>gmouren@gmail.com
+
+    </div>
+    <div style="height:600px;width:400px; display:none;" id="hiring" align="center">
+        《错误》<br><br>
+        我打江南走过<br>
+        那等在季节里的容颜如莲花的开落<br><br>
+        东风不来，三月的柳絮不飞<br>
+        你底心如小小寂寞的城<br>
+        恰若青石的街道向晚<br>
+        跫音不响，三月的春帷不揭<br>
+        你底心是小小的窗扉紧掩<br><br>
+        我达达的马蹄是美丽的错误<br>
+        我不是归人，是个过客... ... <br>
+    </div>
+    <div style="width:400px; float:left;" align="center"><a href="#" onmouseover="show_about()" onmouseout="show_img()">About Me </a></div>
+    <div style="width:400px; float:left;" align="center"><a href="#" onmouseover="show_hiring()" onmouseout="show_img()">Waitting</a></div>
+</div>
+</body>
+</html>
