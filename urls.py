@@ -8,7 +8,7 @@ from django.conf import settings
 urlpatterns = patterns('',
     # Example:
     (r'^$', 'users.views.index'),
-    # (r'^imouren2/', include('imouren2.foo.urls')),
+    (r'^regist/$', 'users.views.regist'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
