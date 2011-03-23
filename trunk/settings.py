@@ -101,3 +101,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'users',
 )
+
+# mail configure
+EMAIL_HOST = "smtp.163.com"
+EMAIL_HOST_PASSWORD = "4427995"
+EMAIL_HOST_USER = "imouren"
+EMAIL_USE_TLS = True
