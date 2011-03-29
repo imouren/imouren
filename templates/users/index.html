@@ -8,17 +8,17 @@
 <script language="javascript">
 function show_about(){
 	$("#img").hide();
-	$("#hiring").hide();
+	$("#waitting").hide();
 	$("#about").show();
 }
-function show_hiring(){
+function show_waitting(){
 	$("#img").hide();
 	$("#about").hide();
-	$("#hiring").show();
+	$("#waitting").show();
 }
 function show_img(){
 	$("#about").hide();
-	$("#hiring").hide();
+	$("#waitting").hide();
 	$("#img").show();
 }
 </script>
@@ -38,7 +38,7 @@ function show_img(){
         <br>gmouren@gmail.com
 
     </div>
-    <div style="height:550px;width:400px; display:none;margin:150px 0px 0px 180px" id="hiring" align="center">
+    <div style="height:550px;width:400px; display:none;margin:150px 0px 0px 180px" id="waitting" align="center">
         《错误》<br><br>
         我打江南走过<br>
         那等在季节里的容颜如莲花的开落<br><br>
@@ -50,8 +50,9 @@ function show_img(){
         我达达的马蹄是美丽的错误<br>
         我不是归人，是个过客... ... <br>
     </div>
-    <div style="width:400px; float:left;" align="center"><a href="#" onmouseover="show_about()" onmouseout="show_img()">About Me </a></div>
-    <div style="width:400px; float:left;" align="center"><a href="#" onmouseover="show_hiring()" onmouseout="show_img()">Waitting</a></div>
+    <div style="width:266px; float:left;" align="center"><a href="#" onmouseover="show_about()" onmouseout="show_img()">About Me </a></div>
+    <div style="width:266px; float:left;" align="center"><a href="#" >Index</a></div>
+    <div style="width:266px; float:left;" align="center"><a href="#" onmouseover="show_waitting()" onmouseout="show_img()">Waitting</a></div>
 </div>
 </body>
 </html>
