@@ -66,6 +66,7 @@
         </script>
         
         <a href="#" onclick="window.open('http://gpf-mng.pointtown.com/s/user/friend/invite?appId=104', '', 'width=800, height=600, menubar=no, location=no, status=no, scrollbars=yes, resizable=no');  return false;">invite friends</a>
+        <div id="bubblefishcontent"></div>
     ]]>
 </Content> 
 </Module>
