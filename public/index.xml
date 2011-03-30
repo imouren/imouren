@@ -8,20 +8,20 @@
     <Require feature="opensocial-payment" />
   </ModulePrefs>
  
-<Content type="html" view="canvas" >
+<Content type="html" >
     <![CDATA[
         <script type="text/javascript">
             function initRequest(){
                 alert('initRequest');
                 
-            }
+            };
             gadgets.util.registerOnLoadHandler(initRequest);
             gadgets.window.adjustHeight(850);
+            alert('a');
         </script>
-        <a href="#">invite friends</a>
-        <div>
-            <button type="button" onclick="alert('payment');">payment</button>
-        </div>
+        <a href="#" onclick="window.open('http://gpf-mng.pointtown.com/s/user/fr
+iend/invite?appId=104', '', 'width=800, height=600, menubar=no, location=no, sta
+tus=no, scrollbars=yes, resizable=no');  return false;">invite friends</a>
     ]]>
 </Content> 
 </Module>
