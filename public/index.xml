@@ -11,147 +11,16 @@
 <Content type="html" view="canvas" >
     <![CDATA[
         <script type="text/javascript">
-             function handlePaymentResponse(dataItem) {
-                 if (dataItem.hadError()) {
-                   //alert('got an error');
-                 } else {
-                   var orderId = dataItem.getData().getField(opensocial.Payment.Field.ORDER_ID);
-                   alert('payment request accepted, orderId: ' + orderId);
-                 }
-              } 
-                 
-              function makePayment(sku_id,price) {
-              
-                 var itemParams = {};
-                 itemParams[opensocial.BillingItem.Field.SKU_ID] = sku_id;
-                 itemParams[opensocial.BillingItem.Field.PRICE]  = price;
-                 itemParams[opensocial.BillingItem.Field.COUNT]  = 1;
-                 itemParams[mbga.BillingItem.Field.NAME]         = "パールで";
-                 itemParams[mbga.BillingItem.Field.IMAGE_URL]     = "http://60.29.241.40/yahoom_media/img/yabage_tu03.gif";
-                 itemParams[opensocial.BillingItem.Field.DESCRIPTION] = '';
-                 
-                 var item = opensocial.newBillingItem(itemParams);
-                 
-                 var params = {};
-                 params[opensocial.Payment.Field.ITEMS]  = [item];
-                 params[opensocial.Payment.Field.AMOUNT] = price;
-                 var payment = opensocial.newPayment(params);
-
-                 opensocial.requestPayment(payment, handlePaymentResponse);
-             }
-             
-             function paymentPage(){
-                var url = "http://yahoom-test.paopaoyu.cn/payment/recharge/";
-                var params={};
-                var post_data = {snsId : snsId};
-                params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(post_data);
-                params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
-                params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-                params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-                gadgets.io.makeRequest(url, commonResponse, params);
-            };
-        
-        
-			var snsId = undefined;
-        	function sendFeed(title, content){
-				var ap = {};
-    			ap[opensocial.Activity.Field.TITLE] = title;//21字之内
-    			ap[opensocial.Activity.Field.BODY] = content;//140字之内
-    			var activity = opensocial.newActivity(ap);
-    			opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.LOW, function(response){
-       				if (response.hadError()) {
-            				var code = response.getErrorCode();
-        			}
-    			});
-			};
-			function invitePage(){
-				var url = "http://yahoom-test.paopaoyu.cn/invite/isinfo/";
-				var params={};
-				var post_data = {snsId : snsId};
-				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(post_data);
-				params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
-				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-				gadgets.io.makeRequest(url, commonResponse, params);
-			};
-			function commonResponse(data){
-				document.getElementById('bubblefishcontent').innerHTML=data.text;
-				document.getElementById('invite_button').innerHTML="";
-				gadgets.window.adjustHeight(1080);
-			};
-			function innerinvite(){
-				opensocial.requestShareApp("VIEWER_FRIENDS", null, function(response) {
-					if (response.hadError()) {
-						var errCode = response.getErrorCode();
-					} else {
-						var recipientIds = response.getData()["recipientIds"];
-					//	alert(recipientIds);
-						if (recipientIds) {
-							var url="http://yahoom-test.paopaoyu.cn/invite/iscallback/";
-							var params={};
-							var post_data = {snsId : snsId, ids : recipientIds };
-							params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(post_data);
-							params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
-							params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-							params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
-							gadgets.io.makeRequest(url, function(data){}, params);
-						}	    
-					}
-				});
-			};
-			
-        	function initRequest() {
-		        var req = opensocial.newDataRequest();
-		        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), "viewer");
-		        req.send(function(data) {
-		            if (!data.hadError()) {
-				        var item = data.get("viewer");
-		                if (!item.hadError()) {
-		                    var viewer = item.getData();
-		                    snsId = viewer.getId();
-                            var nickname = viewer.getDisplayName();
-                            var servletUrl="http://yahoom-test.paopaoyu.cn/";//这是后台的入口，执行完init方法之后，就可以在后台取到当前登录的用户id了
-                            var params={};
-                            var post_data = {snsId : snsId};
-                            params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(post_data);
-                            params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
-                            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-                            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
-                            gadgets.io.makeRequest(servletUrl,initResponse,params);
-			   				var title = nickname+"さんがバブル海に潜入しました";
-			   				var content = nickname+"さんが可愛いフィッシュ達と共に楽しみました!あなたも行って見ては？";
-                            sendFeed(title, content);
-		                }
-					}
-				});
-			};
-			
-			function initResponse(resp){
-				var skey = resp.data.skey;
-				var swfUrl = "http://yahoom-test.paopaoyu.cn/media/swf/v16/gameMain.swf?v=1.0";
-            	gadgets.flash.embedFlash(swfUrl, "bubblefishcontent", Number("10"), {flashVars:"xn_sig_session_key="+skey+"&sns=yahooM", wmode:"window", allowScriptAccess:"always", height:"640px"});
-			};
+            function initRequest(){
+                alert('initRequest');
+                
+            }
             gadgets.util.registerOnLoadHandler(initRequest);
             gadgets.window.adjustHeight(850);
         </script>
         <div>
-            <button type="button" onclick="paymentPage();">payment</button>
+            <button type="button" onclick="alert('payment');">payment</button>
         </div>
-		<div class="yabage_bg">
-		<div class="yabage_text">
-			<ul>
-				<li><a href="http://yahoo-mbga.jp/group/31471190/topic/116729592" target="_blank">まったり雑談ﾄﾋﾟ</a></li>
-				<li><a href=" http://yahoo-mbga.jp/group/31471190/topic/117158735" target="_blank">バブルフィッシュ仲間募集トピ</a></li>
-			</ul>
-		</div>
-		<div class="yabage_tu"><a href="http://yahoo-mbga.jp/game/12003701/play" target="_blank"><img src="http://yahoom-test.paopaoyu.cn/media/img/yabage_tu01.JPG" /></a></div>
-		<div class="yabage_tu"><a href="http://yahoo-mbga.jp/game/12002055/play" target="_blank"><img src="http://yahoom-test.paopaoyu.cn/media/img/yabage_tu02.gif" /</a></div>
-		<div class="yabage_tu"><a href="http://yahoo-mbga.jp/game/12002937/play" target="_blank"><img src="http://yahoom-test.paopaoyu.cn/media/img/yabage_tu03.gif" /</a></div>
-		</div>
-		<div id="invite_button">
-			<p style="text-align:right;"><a href="#" onclick="invitePage()"><img src="http://yahoom-test.paopaoyu.cn/media/img/invite_yahoom/canvas_invite_btn.gif" /></a></p>
-		</div>
-        <div id="bubblefishcontent"></div>
     ]]>
 </Content> 
 </Module>
