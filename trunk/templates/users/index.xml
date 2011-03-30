@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Module>
+  <ModulePrefs title="bubblefish">
+    <Require feature="dynamic-height" />
+    <Require feature="opensocial-0.8" />
+    <Require feature="flash" />
+  </ModulePrefs>
+ 
+<Content type="html" >
+    <![CDATA[
+        
+    hello
+    ]]>
+</Content> 
+</Module>
