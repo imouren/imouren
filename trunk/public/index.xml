@@ -29,7 +29,7 @@
                     s += elem+"\n";
                 }
                 alert(s);
-                var swfUrl = "http://ydxx2.51zhi.com/home/load_game";
+                var swfUrl = "http://ydxx2.51zhi.com/hanfeng.swf";
                 gadgets.flash.embedFlash(swfUrl, "bubblefishcontent", Number("10"),{flashVars:"username=mouren&hashid=f333e60a074f628f9730622f357304b7",wmode:"window",allowScriptAccess:"always", height:"640px"});
             };
             
