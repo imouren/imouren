@@ -24,13 +24,7 @@
             
             function initResponse(resp){
                 alert('initResponse');
- 
-                alert(resp.text+"\n"
-                        +resp['text']+"\n"
-                        +resp.rc+"\n"
-                        +resp.headers+"\n"
-                        +resp.oauthApprovalUrl+"\n"
-                );
+                alert(resp.rc);
                 var swfUrl = "http://ydxx2.51zhi.com/hanfeng.swf";
                 gadgets.flash.embedFlash(swfUrl, "bubblefishcontent", Number("10"),{flashVars:"hash_id=bfeff2a28f5847a0096406acf7859521&uid=56&socket_ip=211.157.108.142&socket_port=8610&flex_ip=211.157.108.142&flex_port=8611&res_url=http://ydxxres1.51zhi.com&convert_money=http://member.51zhi.com/convert_other_money&redirect_url=http://www.51zhi.com",wmode:"window",allowScriptAccess:"always", height:"640px"});
             };
