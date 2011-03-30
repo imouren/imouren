@@ -5,7 +5,6 @@
     <Require feature="dynamic-height" />
     <Require feature="opensocial-0.8" />
     <Require feature="flash" />
-    <Require feature="opensocial-payment" />
   </ModulePrefs>
  
 <Content type="html" >
