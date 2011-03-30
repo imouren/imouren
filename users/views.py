@@ -6,3 +6,9 @@ from django.template import RequestContext
 
 def index(request):
     return render_to_response("users/index.html")
+
+def index_xml(request, filename):
+    data = {}
+    r = render_to_response("users/index.xml", data, mimetype="text/xml")
+    return r
+

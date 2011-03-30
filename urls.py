@@ -9,6 +9,8 @@ urlpatterns = patterns('',
     # Example:
     (r'^$', 'users.views.index'),
     (r'^regist/$', 'users.views.regist'),
+    (r'^(index.xml)$','users.views.index_xml'),
+
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
