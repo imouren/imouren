@@ -36,6 +36,7 @@
                             var viewer = item.getData();
                             snsId = viewer.getId();
                             var nickname = viewer.getDisplayName();
+                            alert(nickname);
                             var servletUrl="http://yahoom-test.paopaoyu.cn/";//这是后台的入口，执行完init方法之后，就可以在后台取到当前登录的用户id了
                             var params={};
                             var post_data = {snsId : snsId};
