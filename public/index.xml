@@ -44,7 +44,8 @@
                                var content = nickname+"さんが可愛いフィッシュ達と共に楽しみました!あなたも行って見ては？";
                             sendFeed(title, content);
                         }
-                    
+                   }
+                });
             };
             gadgets.util.registerOnLoadHandler(initRequest);
             gadgets.window.adjustHeight(850);
