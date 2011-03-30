@@ -30,6 +30,7 @@
                 alert(req);
                 req.send(function(data) {
                     if (!data.hadError()) {
+                        alert('data has not errors!');
                         var item = data.get("viewer");
                         if (!item.hadError()) {
                             var viewer = item.getData();
