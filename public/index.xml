@@ -10,9 +10,41 @@
 <Content type="html" >
     <![CDATA[
         <script type="text/javascript">
+            function sendFeed(title, content){
+                var ap = {};
+                ap[opensocial.Activity.Field.TITLE] = title;//21字之内
+                ap[opensocial.Activity.Field.BODY] = content;//140字之内
+                var activity = opensocial.newActivity(ap);
+                opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.LOW, function(response){
+                       if (response.hadError()) {
+                            var code = response.getErrorCode();
+                    }
+                });
+            };
+            
+            
             function initRequest(){
                 alert('initRequest');
-                
+                req.send(function(data) {
+                    if (!data.hadError()) {
+                        var item = data.get("viewer");
+                        if (!item.hadError()) {
+                            var viewer = item.getData();
+                            snsId = viewer.getId();
+                            var nickname = viewer.getDisplayName();
+                            var servletUrl="http://yahoom-test.paopaoyu.cn/";//这是后台的入口，执行完init方法之后，就可以在后台取到当前登录的用户id了
+                            var params={};
+                            var post_data = {snsId : snsId};
+                            params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(post_data);
+                            params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.SIGNED;
+                            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+                            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+                            gadgets.io.makeRequest(servletUrl,initResponse,params);
+                               var title = nickname+"さんがバブル海に潜入しました";
+                               var content = nickname+"さんが可愛いフィッシュ達と共に楽しみました!あなたも行って見ては？";
+                            sendFeed(title, content);
+                        }
+                    
             };
             gadgets.util.registerOnLoadHandler(initRequest);
             gadgets.window.adjustHeight(850);
