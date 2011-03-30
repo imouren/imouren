@@ -18,6 +18,7 @@
             gadgets.util.registerOnLoadHandler(initRequest);
             gadgets.window.adjustHeight(850);
         </script>
+        <a href="#">invite friends</a>
         <div>
             <button type="button" onclick="alert('payment');">payment</button>
         </div>
