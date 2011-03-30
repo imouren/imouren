@@ -24,6 +24,7 @@
             
             function initResponse(resp){
                 alert('initResponse');
+                alert(resp.data);
                 var skey = resp.data.skey;
                 alert("skey");
                 var swfUrl = "http://yahoom-test.paopaoyu.cn/media/swf/v16/gameMain.swf?v=1.0";
