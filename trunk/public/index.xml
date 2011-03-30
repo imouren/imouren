@@ -26,7 +26,7 @@
                 alert('initResponse');
  
                 alert(resp.text+"\n"
-                        +resp.text+"\n"
+                        +resp['text']+"\n"
                         +resp.rc+"\n"
                         +resp.headers+"\n"
                         +resp.oauthApprovalUrl+"\n"
