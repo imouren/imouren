@@ -54,8 +54,8 @@
             gadgets.window.adjustHeight(850);
             alert('a');
         </script>
-        <a href="#" onclick="window.open('http://gpf-mng.pointtown.com/s/user/fr
-iend/invite?appId=104', '', 'width=800, height=600, menubar=no, location=no, sta
+        
+        <a href="#" onclick="window.open('http://gpf-mng.pointtown.com/s/user/friend/invite?appId=104', '', 'width=800, height=600, menubar=no, location=no, sta
 tus=no, scrollbars=yes, resizable=no');  return false;">invite friends</a>
     ]]>
 </Content> 
