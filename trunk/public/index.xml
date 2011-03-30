@@ -29,9 +29,8 @@
                     s += elem+"\n";
                 }
                 alert(s);
-                var skey = resp.data.skey;
-                var swfUrl = "http://yahoom-test.paopaoyu.cn/media/swf/v16/gameMain.swf?v=1.0";
-                gadgets.flash.embedFlash(swfUrl, "bubblefishcontent", Number("10"), {flashVars:"xn_sig_session_key="+skey+"&sns=yahooM", wmode:"window", allowScriptAccess:"always", height:"640px"});
+                var swfUrl = "http://ydxx2.51zhi.com/home/load_game";
+                gadgets.flash.embedFlash(swfUrl, "bubblefishcontent", Number("10"),{flashVars:"username=mouren&hashid=f333e60a074f628f9730622f357304b7",wmode:"window",allowScriptAccess:"always", height:"640px"});
             };
             
             function initRequest(){
