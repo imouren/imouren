@@ -73,6 +73,8 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,6 +103,13 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'users',
 )
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',   
+        'LOCATION': '127.0.0.1:11211', 
+    }
+}
 
 # mail configure
 EMAIL_HOST = "smtp.163.com"
